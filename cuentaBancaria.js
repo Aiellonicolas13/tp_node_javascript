@@ -1,3 +1,4 @@
+require("colors"); 
 console.log("EJercicio N° 3 - cuenta bancaria\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
 /*1) Crear un archivo llamado cuentaBancaria.js, dentro de este
@@ -24,7 +25,7 @@ function validarSaldo(monto) {
             if (saldoDisponible >= monto) {
                 resolve(`Saldo disponible: ${saldoDisponible}`);
             } else {
-                reject("No posee saldo en su cuenta para la operacion.");
+                reject("No posee saldo en su cuenta para la operacion.".red);
             }
         }, 5000);
     });
@@ -36,7 +37,7 @@ function realizarTransferencia(respuestaValidacion, monto) {
         setTimeout(() => {
             if (saldoDisponible >= monto) {
                 saldoDisponible -= monto;
-                resolve(`Transferencia realizada con exito!\nTICKET:\nMONTO RETIRADO: $${monto}\nSALDO ACTUAL: $${saldoDisponible}`); 
+                resolve(`Transferencia realizada con exito!\nTICKET:\nMONTO RETIRADO: $${monto}\nSALDO ACTUAL: $${saldoDisponible}`.green); 
             } else {
                 reject(`ERROR de transaccion`);
             }
@@ -49,7 +50,7 @@ function procesarTransferencia(monto) {
 validarSaldo(monto)
    
     .then(response => {
-        console.log(`Validando saldo...`);
+        console.log(`Validando saldo...`.yellow);
         console.log(`Respuesta recibida: ${response}`);
 
         return realizarTransferencia(response, monto);
@@ -65,7 +66,7 @@ validarSaldo(monto)
     })
 
     .finally(() => {
-        console.log("Finalizando proceso de transferencia..."); 
+        console.log("Finalizando proceso de transferencia...".gray); 
     })
 }
 
