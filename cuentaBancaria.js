@@ -1,5 +1,4 @@
 require("colors"); 
-console.log("EJercicio N° 3 - cuenta bancaria\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
 /*1) Crear un archivo llamado cuentaBancaria.js, dentro de este
 archivo realizar los siguientes métodos.
@@ -20,6 +19,8 @@ let saldoDisponible = 5000;
 
 function validarSaldo(monto) {
     return new Promise((resolve, reject) => {
+        console.log("===================================".cyan);
+        console.log("EJercicio N° 3 - Cuenta bancaria\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         console.log("Estamos ejecutando la transaccion");
         setTimeout(() => {
             if (saldoDisponible >= monto) {
@@ -47,7 +48,7 @@ function realizarTransferencia(respuestaValidacion, monto) {
 
 
 function procesarTransferencia(monto) {
-validarSaldo(monto)
+    return validarSaldo(monto)
    
     .then(response => {
         console.log(`Validando saldo...`.yellow);
@@ -70,6 +71,8 @@ validarSaldo(monto)
     })
 }
 
-procesarTransferencia(1000);
+function ejecutarCuentaBancaria() {
+    return procesarTransferencia(1000);
+}
 
-
+module.exports = ejecutarCuentaBancaria;

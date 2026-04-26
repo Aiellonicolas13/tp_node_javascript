@@ -1,5 +1,5 @@
 require("colors");
-console.log("EJercicio N° 3 - Instituto\n~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+
 /*2) Crear un archivo llamado instituto.js, dentro de este archivo
 crear un objeto que se llame alumno con las siguientes
 propiedades: Nombre, Edad, inscriptoAMaterias (un array de
@@ -32,6 +32,8 @@ const alumno = {
 
 function validarCorrelativa(alumno){
     return new Promise((resolve, reject) => {
+        console.log("===================================".cyan)
+        console.log("EJercicio N° 3 - Instituto\n~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         console.log(`Hola ${(alumno.nombre)}, estamos validando si debes alguna correlativa...`);
         setTimeout(() => {
             if (alumno.debeCorrelativa === false) {
@@ -55,7 +57,7 @@ function inscribirMateria(alumno, materia){
 }
 
 function procesarInscripcion(alumno, materia) {
-    validarCorrelativa(alumno) 
+   return validarCorrelativa(alumno) 
 
         .then(response => {
             console.log(response);
@@ -77,10 +79,17 @@ function procesarInscripcion(alumno, materia) {
      
 }
 
-procesarInscripcion(alumno, "Matematica 1");
+function ejecutarInstituto() {
 
-setTimeout(() => {
-    alumno.nombre = "Jose";
-    alumno.debeCorrelativa = true;
-    procesarInscripcion (alumno, "Base de datos")
-}, 10000);
+    return procesarInscripcion(alumno, "Matematica 1");
+
+    setTimeout(() => {
+        alumno.nombre = "Jose";
+        alumno.debeCorrelativa = true;
+
+        procesarInscripcion(alumno, "Base de datos");
+
+    }, 10000);
+}
+
+module.exports = ejecutarInstituto;

@@ -1,5 +1,4 @@
 require("colors");
-console.log("EJercicio N° 3 - Mercado restringido\n~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
 /*3) Crear un archivo llamado mercadoRestringido.js, dentro de este
 archivo generar cinco objetos de tipo producto, deben tener las
@@ -39,6 +38,8 @@ const productos = [
 ]
 
 function validarStock (nombreProducto, productos) {
+        console.log("===================================".cyan);
+        console.log("EJercicio N° 3 - Mercado restringido\n~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         return new Promise((resolve, reject) => {
         console.log(`Estamos validando el stock del producto seleccionado: ${nombreProducto}`.yellow);
         setTimeout(() => {
@@ -78,7 +79,7 @@ function imprimirEtiqueta(producto){
 }
 
 function procesarVenta(nombreProducto) {
-    validarStock(nombreProducto, productos)
+    return validarStock(nombreProducto, productos)
 
     .then(producto => {
         console.log("Stock validado correctamente".green);
@@ -104,8 +105,13 @@ function procesarVenta(nombreProducto) {
     })
 }
 
-procesarVenta("Mouse");
+function ejecutarMercado() {
 
-setTimeout(() =>{
-    procesarVenta("Memoria ram");
-}, 8000)
+   return procesarVenta("Mouse");
+
+    setTimeout(() => {
+        procesarVenta("Memoria ram");
+    }, 8000);
+}
+
+module.exports = ejecutarMercado;
