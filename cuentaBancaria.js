@@ -1,6 +1,3 @@
-function separador() {
-    console.log("****************");
-}
 console.log("EJercicio N° 3 - cuenta bancaria\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
 /*1) Crear un archivo llamado cuentaBancaria.js, dentro de este
@@ -73,3 +70,5 @@ validarSaldo(monto)
 }
 
 procesarTransferencia(1000);
+
+
